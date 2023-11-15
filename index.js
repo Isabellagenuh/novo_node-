@@ -9,7 +9,7 @@ app.set("view engine", 'handlebars')
 app.use(express.static('public'))
 
 app.get('/', (requisicao, resposta) => {
-    resposta.render('home')
+    resposta.render('Home')
 })
 
 app.listen(3000, () => {
