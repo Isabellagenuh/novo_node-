@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="/css/styles.css">
     <title>ToDo App</title>
 </head>
-<body class="dark">
+<body>
     <header>
         <div>
             <div>
-                 <h1>To Do</h1>
-                 <img src="/imagens/mon-icon.png" alt="iconi de lua">
+                <h1>To Do</h1>
+                <button class="tema-button" onclick="alterarTema()">
+                    <img src="/imagens/mon-icon.png" alt="iconi de lua">
+                </button>
         </div>
         <form action="">
             <input type="text" id="nova-tarefa" placeholder="Criar uma nova tarefa" name="novaTarefa">
@@ -25,5 +27,7 @@
         </div>
     </header>
     {{{body}}}
+
+    <script src="/js/script.js"></script>
 </body>
 </html>

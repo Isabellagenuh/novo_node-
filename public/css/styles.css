@@ -70,6 +70,12 @@ header div div{
     margin-bottom: 2.5rem;
 }
 
+header button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 header h1{
     color: #fff;
     text-transform: uppercase;
