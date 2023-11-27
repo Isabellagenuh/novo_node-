@@ -42,8 +42,6 @@ app.get('/', (requisicao, resposta) => {
             return console.log(erro)
         }
 
-        console.log(dados)
-
         const tarefa = dados.map((dado) => {
             return {
                 id: dado.id,
@@ -52,7 +50,7 @@ app.get('/', (requisicao, resposta) => {
             }
         })
 
-        console.log(tarefa)
+        resposta.render('home', {tarefa})
     })
 })
 
