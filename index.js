@@ -15,6 +15,7 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
+
 app.post('/completar', (requisicao, resposta) => {
     const id = requisicao.body.id
 
@@ -32,6 +33,7 @@ app.post('/completar', (requisicao, resposta) => {
         resposta.redirect('/')
     })
 })
+
 
 app.post('/descompletar', (requisicao, resposta) => {
     const id = requisicao.body.id
@@ -71,8 +73,29 @@ app.post('/criar', (requisicao, resposta) => {
     })
 })
 
-app.get('/ativas', (requisicao, resposta) => {
-    
+app.get("/ativas", (requisicao, resposta) => {
+    const sql = `
+    SELECT * FROM tarefa
+    WHERE completa = 0
+    `
+
+    conexao.query(sql, (erro, dados) => {
+        if (erro) {
+            return console.log(erro)
+        }
+
+        const tarefa = dados.map((dado) => {
+            return {
+                id: dado.id,
+                descricao: dado.descricao,
+                completa: false
+            }
+        })
+
+        const quantidadeTarefas = tarefa.length
+
+        resposta.render('ativas', {tarefa, quantidadeTarefas})
+    })
 })
 
 app.get('/', (requisicao, resposta) => {
